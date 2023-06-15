@@ -15,7 +15,7 @@ Supplementary rebuttal for NDSS'24 Summer #540
 Thank you for the suggestion on the application of CACators in attacks. In fact, we tried to use CACators to reduce the number of iterations on generating adversarial examples, but it did not work well. We agree that using CACators to reduce the unnatural-looking adversarial noise is a promising research direction. Studies about this may improve the audibility metrics and challenge existing defense methods. We will consider it as one of our future directions for research and look forward to other researchers' studies after the paper is accepted.
 
 
-Review #540C
+## Review #540C ##
 **Question 1:**  
 *For instance, it seems that the authors assume rather deep background knowledge of acoustics since they do not provide much info there. Regarding the related work section, I find it rather poor: it is short, and half of it is spent on interpretability, which is nothing bad, but I do not see much on interpretability in the rest of the paper.*
 
@@ -63,31 +63,31 @@ We chose these values because they can reflect the difference in properties betw
 **Answer:**  
 The adversarial attack requires the perturbation to be as small as possible, so they only change a few values. According to past experimental results, the distribution of these values is usually discrete. For example, in images, the perturbation is several pixels. Similarly, in speech, the AN is some energy that distributes discretely in the time-frequency domain. This is why ANs are temporal discontinuity and have many formants with narrow frequency bands.
 
-**Question 7:**
+**Question 8:**
 *Section D. Abnormal Linguistic Pattern of AEs does not discuss Imp Attack. Why?*
 
 **Answer:**  
 We do not discuss the Imperception attack because its targeted model Lingvo has no language model, and we do not have access to the linguistic properties of this kind of AEs.
 
-**Question 8:**
+**Question 9:**
 audio frame and get a total of 22 features. -> why 22?
 
 **Answer:**  
 8 of the 22 features are CACators, selected from 208 acoustic-statistical features, and the adversarial properties represented by them pass the commonality check. The remaining 14 are derived features of 8 CACators and have similar physical meanings as them.
 
-**Question 9:**
+**Question 10:**
 *We use a random forest -> why? some info on the machine learning model?*
 
 **Answer:**  
 Because random forest can give the weight of each feature, and it is a widely used model for feature ranking.
 
-**Question 10:**
+**Question 11:**
 *MFCCs of audios into the classifier directly and is trained with AEs from C&W Attack and a black-box attack [9]. -> so black box? But I thought that the authors in the beginning assume white box?*
 
 **Answer:**  
 For defense, generality is a common evaluation metric. Although our study is on white-box attacks, we verify the effectiveness of our AE detector on other unseen models, including a black-box attack.
 
-**Question 11:**
+**Question 12:**
 *The CNN-based detector shows poor performance on Imp and GA attacks, indicating limited transferability. -> how is CNN tuned?*
 
 **Answer:**  
